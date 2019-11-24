@@ -11,7 +11,7 @@
     <properties>
         <spark.version>2.3.0</spark.version>
         <scala.version>2.11.0</scala.version>
-        <mqtt.version>1.2.0</mqtt.version>
+        <mqtt.version>1.2.1</mqtt.version>
     </properties>
 
     <dependencies>
