@@ -1,14 +1,9 @@
 package com.iot.analysis.message.handler;
 
-import org.eclipse.paho.client.mqttv3.IMqttActionListener;
-import org.eclipse.paho.client.mqttv3.IMqttToken;
-import org.eclipse.paho.client.mqttv3.MqttAsyncClient;
-import org.eclipse.paho.client.mqttv3.MqttCallback;
-import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
-public class SimpleMqttActionListenerImpl implements IMqttActionListener {
+public class SimpleMqttActionListenerImpl extends MessageListener {
 
     private final String topic;
     private final String serverURI;
@@ -35,7 +30,7 @@ public class SimpleMqttActionListenerImpl implements IMqttActionListener {
             try {
                 this.client.subscribe(this.topic, 2, null, this);
             } catch (MqttException e) {
-                e.printStackTrace();
+                throw new IllegalStateException(e);
             }
         }
     }
